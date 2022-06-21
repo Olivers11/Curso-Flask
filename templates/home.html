@@ -1,0 +1,11 @@
+{% extends "navbar.html" %}
+
+
+{% block body%}
+    <br>
+    {% for nom in nombres %}
+        <div class="alert alert-primary mx-auto" style="width: 100px;" role="alert">
+            {{ nom }}
+        </div>
+    {% endfor %}
+{% endblock %}
