@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 
 
@@ -7,18 +7,21 @@ aplicacion = Flask(__name__)
 #Rutas
 @aplicacion.route("/home")
 def home():
+    #http://127.0.0.1:3000/home?parametro1=Oliver
+    param = request.args.get('parametro1', '')
+    return f"El parametro es: {param}"
+
     #Crear un template para la ruta 'home'
     #Pasarle datos al <home.html>
-    nombres = ["Oliver", "Carlos", "Estuardo", "Casie"]
-    return render_template("home.html", nombres=nombres)
+    # nombres = ["Oliver", "Carlos", "Estuardo", "Casie"]
+    # return render_template("home.html", nombres=nombres)
 
 
 
 @aplicacion.route("/")
 def principal():
     #   <input type="text" placeholder="Ingrese su nombre" />
-    data = { 'titulo': 'Index', 'bienvenida': 'queonda'}
-    return render_template("index.html", data=data)
+    return render_template("index.html" )
 
 
 
