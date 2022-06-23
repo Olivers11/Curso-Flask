@@ -5,16 +5,17 @@ from flask import Flask, render_template, request
 aplicacion = Flask(__name__)
 
 #Rutas
-@aplicacion.route("/home")
+@aplicacion.route("/home", methods=['GET'])
 def home():
     #http://127.0.0.1:3000/home?parametro1=Oliver
-    param = request.args.get('parametro1', '')
-    return f"El parametro es: {param}"
+    # return f"El parametro es: {param}"
+    try:
+        nombre = request.args.get('nombre')
+        print(nombre)
+        return render_template("home.html", nombre=nombre)
+    except:
+        return render_template("index.html")
 
-    #Crear un template para la ruta 'home'
-    #Pasarle datos al <home.html>
-    # nombres = ["Oliver", "Carlos", "Estuardo", "Casie"]
-    # return render_template("home.html", nombres=nombres)
 
 
 
