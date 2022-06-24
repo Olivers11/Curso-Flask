@@ -25,6 +25,11 @@ def principal():
     return render_template("index.html" )
 
 
+@aplicacion.route("/estilo")
+def estilo():
+    return render_template("estilo.html")
+
+
 
 
 if __name__ == "__main__":
